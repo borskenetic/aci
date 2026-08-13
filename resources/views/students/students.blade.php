@@ -88,7 +88,6 @@
                                 <th>Course</th>
                                 <th>Year</th>
                                 <th>Actions</th>
-                                <th>Generate ID</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -122,22 +121,10 @@
                                             </ul>
                                         </div>
                                     </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                                Generate
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="{{ url('idcard/front/' . $student->id) }}" target="_blank">View ID</a></li>
-                                                <li hidden><a class="dropdown-item" href="{{ url('idcard/back/' . $student->id) }}" target="_blank">Back</a></li>
-                                                <li hidden><a class="dropdown-item" href="{{ url('idcard/download/' . $student->id) }}">Download ZIP</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="7">No students found.</td>
+                                    <td colspan="6">No students found.</td>
                                 </tr>
                             @endforelse
                         </tbody>
