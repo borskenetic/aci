@@ -37,6 +37,7 @@
 </head>
 <body>
 <div class="container">
+    <p class="mb-3"><a href="{{ route('home') }}" class="text-decoration-none">&larr; Back to Home</a></p>
     <h3 class="text-center mb-4">📚 Book a Study Room</h3>
 
     @if(session('error'))

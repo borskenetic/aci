@@ -86,6 +86,10 @@
                 </a>
             </div>
 
+            <div class="text-center mt-3">
+                <a href="{{ route('home') }}" class="text-decoration-none">← Back to Home</a>
+            </div>
+
         </form>
     </div>
 

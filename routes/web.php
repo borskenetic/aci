@@ -38,12 +38,12 @@ use App\Models\Book;
 // =============================
 // Public Routes
 // =============================
-// Route::get('/', function () {
-//     return view('index'); // <-- new home page
-// })->name('home');
 Route::get('/', function () {
-    return redirect()->route('login');
+    return view('index');
 })->name('home');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

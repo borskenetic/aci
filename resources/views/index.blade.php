@@ -1,213 +1,271 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USM Library</title>
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('img/usm_logo_1954.png') }}">
-</head>
-<body>
+@extends('layouts.aci-public')
 
-    <header class="navbar">
-        <div class="navbar-content">
-            <div class="logo-section">
-                <img src="{{ asset('img/usm_logo_1954.png') }}" alt="University Logo" class="logo">
-                <span class="university-name">
-                    UNIVERSITY OF SOUTHERN MINDANAO
-                </span>
-            </div>
-            <button type="button" class="nav-menu-toggle" id="navMenuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
-                <span class="nav-menu-toggle-bar" aria-hidden="true"></span>
-                <span class="nav-menu-toggle-bar" aria-hidden="true"></span>
-                <span class="nav-menu-toggle-bar" aria-hidden="true"></span>
-            </button>
-            <nav class="nav-links" id="primaryNav">
-                <a href="{{ url('/') }}">HOME</a>
-                <a href="{{ asset('about.html') }}">ABOUT</a>
-                <a href="{{ route('landing') }}">OPAC</a>
-                <a href="https://zendy.io/">ZENDY</a>
-                <a href="{{ asset('contact.html') }}">CONTACT US</a>
-                <a href="{{ url('/rooms/book') }}">ROOM RESERVATIONS</a>
-                <a href="{{ route('feedback.create') }}" class="feedback-link" >FEEDBACK</a>
-                <a href="{{ route('login') }}" class="login-button">LOGIN</a>
-            </nav>
-                    
-        </div>
-    </header>
+@section('title', 'Agusan Colleges Inc')
 
-    <main class="hero-section">
-        <video autoplay muted loop playsinline class="bg-video">
-            <source src="{{ asset('videos/library-bg.mp4') }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    
-        <div class="overlay">
-            <h1 class="welcome-text" hidden>WELCOME TO USM LIBRARY</h1>
-        </div>
-    </main>
-
-
-    <section class="image-gallery-section">
-        <div class="gallery-header">
-            <h2>USM – Kundo E. Pahm Learning Resources Center</h2>
-        </div>
-        
-        <div class="gallery-container">
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 13.png') }}" alt="KEPLRC Room 13 Activity" class="gallery-image">
-                <p class="caption">KEPLRC 13</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 15.png') }}" alt="KEPLRC Room 15 Group Work" class="gallery-image">
-                <p class="caption">KEPLRC 15</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 14.png') }}" alt="KEPLRC Room 14 Students Studying" class="gallery-image">
-                <p class="caption">KEPLRC 14</p>
-            </div>
-
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 12.png') }}" alt="KEPLRC Room 13 Activity Repeated" class="gallery-image">
-                <p class="caption">KEPLRC 12</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 11.png') }}" alt="KEPLRC Room 15 Group Work Repeated" class="gallery-image">
-                <p class="caption">KEPLRC 11</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 10.png') }}" alt="KEPLRC Room 14 Students Studying Repeated" class="gallery-image">
-                <p class="caption">KEPLRC 10</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 09.png') }}" alt="KEPLRC Room 14 Students Studying Repeated" class="gallery-image">
-                <p class="caption">KEPLRC 09</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 08.png') }}" alt="KEPLRC Room 14 Students Studying Repeated" class="gallery-image">
-                <p class="caption">KEPLRC 08</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 07.png') }}" alt="KEPLRC Room 14 Students Studying Repeated" class="gallery-image">
-                <p class="caption">KEPLRC 07</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 06.png') }}" alt="KEPLRC Room 14 Students Studying Repeated" class="gallery-image">
-                <p class="caption">KEPLRC 06</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 05.png') }}" alt="KEPLRC Room 14 Students Studying Repeated" class="gallery-image">
-                <p class="caption">KEPLRC 05</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 04.png') }}" alt="KEPLRC Room 14 Students Studying Repeated" class="gallery-image">
-                <p class="caption">KEPLRC 04</p>
-            </div>
-            <div class="image-card">
-                <img src="{{ asset('img/KEPLRC 02.png') }}" alt="KEPLRC Room 14 Students Studying Repeated" class="gallery-image">
-                <p class="caption">KEPLRC 02</p>
-            </div>
-            
+@section('content')
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content hidden">
+            <h1>WELCOME TO AGUSAN<br>COLLEGES INC.</h1>
+            <a href="{{ route('login') }}" class="login-btn" hidden>LOGIN</a>
         </div>
     </section>
 
-<section class="vm-section">
-        <div class="vm-container">
-            <div class="vm-item vision-item">
-                <h2 class="vm-title">VISION</h2>
-                <p>The University Library as the repository of resources shall seek to extend easy access, provide the venue and render assistance to 
-                    quality information materials for the benefit of all constituents.</p>
-            </div>
-            <div class="vm-item mission-item">
-                <h2 class="vm-title">MISSION</h2>
-                <p>The University Library’s primary responsibility is to provide information support to the teaching and learning process, research 
-                    and extension services activities of the students, faculty and other members of the academic community through the use of organized, relevant 
-                    and fast delivery of information services.</p>
-            </div>
+    <section class="content-section reveal slide-up">
+        <div class="section-header">
+            <h2 class="main-title">PROGRAMS OFFERED</h2>
         </div>
 
-        <div class="keplrc-description">
-            <p>The Kundo E. Pahm Learning Resource Center is the information arm of the University. It supports basically the curricular offerings, 
-                research engagement and information needs of the faculty, students, and researchers of the entire university community.
-                 In this Pandemic, the nature of services of the library totally shifted from a conventional type to a virtual type of services that libraries and librarians must embrace. 
-                 The University administration had not stop extending and delivering quality education to all constituents through creating a campus in various places of the Province. 
-                 Along with the expansion USM campuses in the community and opening of new programs and colleges the establishment of campus-based, college-based and unit-based 
-                 libraries of the University to ensure that the information needs of the stakeholders will be catered.</p>
+        <div class="programs-list">
+            <div class="program-item">
+                <div class="program-card reveal fade-left">
+                    <img src="{{ asset('img/BEE.jpg') }}" alt="BEEd">
+                </div>
+                <div class="program-details reveal fade-right">
+                    <h3>BACHELOR OF SCIENCE IN ELEMENTARY EDUCATION</h3>
+                    <p>The BEEd is an undergraduate teacher education degree program designed to prepare individuals intending to teach in the elementary level.
+                        The BEEd degree program aims to develop highly motivated and competent teachers specializing in the content and pedagogy for
+                        elementary education.</p>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-card reveal fade-right">
+                    <img src="{{ asset('img/BSA.jpg') }}" alt="BSA">
+                </div>
+                <div class="program-details reveal fade-left">
+                    <h2>BACHELOR OF SCIENCE IN ACCOUNTING INFORMATION SYSTEM</h2>
+                    <p>This is the program that provides general accounting education to students wanting to pursue a professional career in
+                        Accounting Information System. Further, this is the program that complies with the latest competency framework for professional
+                        accountants issued by the International Federation of Accountants (IFAC) thru their International Education Standards.</p>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-card reveal fade-left">
+                    <img src="{{ asset('img/BSBA.jpg') }}" alt="BSBA">
+                </div>
+                <div class="program-details reveal fade-right">
+                    <h2>BACHELOR OF SCIENCE IN BUSINESS ADMINISTRATION MAJOR IN MARKETING MANAGEMENT</h2>
+                    <p>The BS in Business Administration program utilizes an integration approach to study the interrelationships among the different functional areas
+                        of business and examine how the effective orchestration of these different components of business operations can lead to organizational success.</p>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-card reveal fade-left">
+                    <img src="{{ asset('img/BSIT.jpg') }}" alt="BSIT">
+                </div>
+                <div class="program-details reveal fade-right">
+                    <h2>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY</h2>
+                    <p>The BS Information Technology program includes the study of the utilization of both hardware and software technologies involving planning,
+                        installing, customizing, operating, managing and administering, and maintaining information technology infrastructure that provides computing
+                        solutions to address the needs of an organization.</p>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-card reveal fade-left">
+                    <img src="{{ asset('img/BSED.jpg') }}" alt="BSEd">
+                </div>
+                <div class="program-details reveal fade-right">
+                    <h2>BACHELOR OF SCIENCE IN SECONDARY EDUCATION</h2>
+                    <p>The BSEd is an undergraduate teacher education degree program designed to equip learners with adequate and relevant competencies
+                        to teach in their chosen area of specialization/major in the secondary level. The BSEd degree program aims to develop highly motivated and
+                        competent teachers specializing in the content and pedagogy for secondary education.</p>
+                </div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-card reveal fade-left">
+                    <img src="{{ asset('img/GRAD.jpg') }}" alt="Graduate and K-12 programs">
+                </div>
+                <div class="program-details reveal fade-right">
+                    <h2>GRADUATE PROGRAMS AND K-12 PROGRAMS</h2>
+                    <p>Master of Arts in Education and Master in Business Administration</p>
+                    <p>Complete K-12 Programs</p>
+                    <p>- Pre-School</p>
+                    <p>- Elementary</p>
+                    <p>- Junior Highschool</p>
+                    <p>- Senior Highschool</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    
-        <div class="philosophy-container">
-            <h2 class="philosophy-title">Philosophy</h2>
-            <p class="philosophy-intro">The main philosophy of the library is efficiency of service. Its primary function is to transmit into action its institutional objectives. As a service agency, it is considered the brain of the institution and acts as the teaching agency in terms of giving assistance in the location of information from all available library resources. To achieve the full expression of service to its clientele, the library must be:</p>
-            
-            <ol class="philosophy-list">
-                <li>An active and even aggressive participant in the whole program of education as it strives to meet the needs of the students, teachers and administration as well;</li>
-                <li>A living repository of well-distributed and up-dated collections which readily support the course curriculum offerings and enhances the education’s learning processes and teaching competence;</li>
-                <li>A resourceful facilitation of materials appropriate and most meaningful in the clientele’s growth and development as individuals;</li>
-                <li>An efficient teaching instrument in the formation of a genuine citizen through the development of moral and spiritual values as designed in the curriculum; and</li>
-                <li>It must be an efficient service agency that could readily answers the needs of every library clientele and whole objectives are adequately met by providing reference materials in all the subjects in the curriculum.</li>
-            </ol>
-        </div>
-    </section>
+    <section class="vmgo-section">
+        <div class="vmgo-container">
+            <div class="vmgo-item reveal slide-up">
+                <h2 class="vmgo-title">VISION</h2>
+                <div class="vmgo-text">
+                    <p>A leading academic institution offering quality affordable education producing graduates who will become contributing and responsive members of the global community.</p>
+                </div>
+            </div>
 
+            <div class="vmgo-item reveal slide-up" style="transition-delay: 0.1s;">
+                <h2 class="vmgo-title">MISSION</h2>
+                <div class="vmgo-text">
+                    <p>To provide a high quality, comprehensive, and meaningful education for all students so that they become productive citizens empowered with knowledge and skills and untainted personal attributes.</p>
+                </div>
+            </div>
 
-    <section class="goals-objectives-section">
-        <div class="goals-container">
-            <h2 class="goals-main-title">Goals and Objectives of the Library</h2>
-            <p class="goals-subtitle">In line with the Vision and Mission of the University, the library shall achieve the following goals and objectives.</p>
-            
-            <h3 class="goals-heading">Goals</h3>
-            <ol class="goals-list">
-                <li>The foremost provider of information resources to support the academic requirements of our students and professional development for faculty, staff and researchers.</li>
-                <li>The foremost provider of information resources to support the teaching and research functions of our students, faculty, staff and researchers.</li>
-                <li>A teaching library engaged in the development of the information research skills of students, faculty, staff and researchers.</li>
-                <li>A preserver and developer of collection and archives essential to faculty and student researches.</li>
-            </ol>
+            <div class="vmgo-item reveal slide-up" style="transition-delay: 0.2s;">
+                <h2 class="vmgo-title">GOALS</h2>
+                <div class="vmgo-text">
+                    <p>As envisioned by the Founder, ACI's goals are based not only on a liberal learning education which encourages the molding and growth of productive professionals but also on the provision of opportunities:</p>
+                    <ol class="goals-list">
+                        <li>To enable students to acquire a body of knowledge in a specific discipline.</li>
+                        <li>To think critically.</li>
+                        <li>To enhance student abilities to make significant contributions to the communities where they live.</li>
+                        <li>To provide the pathway for students to continue the pursuit of life-long learning.</li>
+                    </ol>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="objectives-section">
-        <div class="goals-container">
-  <h2 class="goals-main-title">Library Hours</h2>
-            <p class="goals-subtitle">The Library is open from 
-                <strong>Monday to Friday at 7:00 AM to 6:00 PM with No Noon Break. </strong> During Midterm and Final examination period, 
-                the library is <strong>open on Saturday’s from 7:00am to 6:00pm with No noon break.</strong></p>
-            
-            <h3 class="goals-heading">Objectives</h3>
-            <ol class="goals-list">
-                <li>To acquire printed, non-printed, electronic resources and 
-                    other instructional materials in line with the demands of the curriculum and the needs of the clientele and to organize these materials for effective use.</li>
-                <li>To guide the clientele on the choice of resources and other learning materials for personal and curricular purposes.</li>
-                <li>To develop clientele’s skill and resourcefulness on the use of printed, non-printed and electronic resources in the library and 
-                    to encourage the habit of personal investigation.</li>
-                <li>To help every library clientele establish a wide range of significant interests.</li>
-                <li>To provide aesthetic experience and develop appreciation of the arts.</li>
-                <li>To encourage lifelong education through the use of library resources.</li>
-                <li>To encourage social attitudes and provide experience in a social and democratic living.</li>
-                <li>To include provisions for physical, social aspects and professional development of staff.</li>
-                <li>To work cooperatively and constructively with the entire university constituents.</li>
-
-              
-
-            </ol>
+        <div class="vmgo-container">
+            <div class="vmgo-item reveal slide-up">
+                <h2 class="vmgo-title">OBJECTIVES</h2>
+                <div class="vmgo-text">
+                    <ol class="objectives-list">
+                        <li>To offer demand-driven curricular programs attuned to the current societal preferences;</li>
+                        <li>To deliver quality IT-based instruction through strong responsive developmental programs; and modern, upgraded physical and laboratory facilities;</li>
+                        <li>To enhance equity and access for the poor but deserving students through expanded scholarship programs, grants-in-aids student assistantship and other "predicate" opportunities; and</li>
+                        <li>To promote relevant and quality extension programs to heighten impact through unified environmental community involvement.</li>
+                    </ol>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <img src="{{ asset('img/usm_logo_1954.png') }}" alt="USM Logo" class="footer-logo">
-            <h2 class="footer-university-name">UNIVERSITY OF SOUTHERN MINDANAO</h2>
-            <p class="footer-tagline">"Your Partner in Academic Excellence and Leadership Development."</p>
-            <p class="footer-tagline">USM, Kabacan, North Cotabato | usmvprde@usm.edu.ph | (064) 248 - 2638</p>
-            <p class="footer-copyright">Pantas &copy; 2025. All Rights Reserved.</p>
+    <section class="history-section">
+        <div class="vmgo-container">
+            <div class="vmgo-item reveal slide-up">
+                <h2 class="vmgo-title">HISTORY</h2>
+                <div class="vmgo-text">
+                    <p>Late in 1950, retiring public school officials put them together and opted to get things going for a non-sectarian College. Documents,
+                        having been hurried in place, the Agusan Colleges (AC) were founded in 1951 in time for SY 1951-52.</p>
+
+                    <p>AC with its 2-storey semi-concrete structure constructed on a leased lot at San Jose corner M. Calo Sts., opened up for SY 1951-52.
+                        It started with basic and high school education, typing and stenography, dressmaking and tailoring, beauty culture, 1-year Secretarial course,
+                        Elementary Teachers Certificate, Associate in Commercial Science, and Associate in Arts. These were the same programs offered until SY 1955-56.</p>
+
+                    <p>The enrollment in all levels increased year after year. It had no fewer than 400 students for SY 1955-56. This trend inspired the Administration to
+                        come up with 4-year courses. These were: Bachelor of Science in Commerce (BSC); Bachelor of Science in Education (BSE); Bachelor of Science in
+                        Elementary Education (BSEED); and Bachelor of Arts (AB). These courses sparked a new high in enrollment of no less than 600 for SY 1956-57.</p>
+
+                    <p>Nonetheless, during SY 1957-58, the Administration could not sink its roots deeper due to interventions from influential stockholders. Faced with
+                        strong resistance from the former, the latter opted to close AC and released the same for sale. Mr. Federico C. Chanjueco, who was ...
+                        <span class="read-more">READ MORE</span>
+                    </p>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
 
+    <div id="historyModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="modal-title">THE HISTORY OF AGUSAN COLLEGES INC.</h2>
+            <div class="modal-body">
+                <p>Late in 1950, retiring public school officials put them together and opted to get things going for a non-sectarian College. Documents,
+                     having been hurried in place, the Agusan Colleges (AC) were founded in 1951 in time for SY 1951-52.</p>
 
+                <p>AC with its 2-storey semi-concrete structure constructed on a leased lot at San Jose corner M. Calo Sts., opened up for SY 1951-52.
+                    It started with basic and high school education, typing and stenography, dressmaking and tailoring, beauty culture, 1-year Secretarial course,
+                    Elementary Teachers Certificate, Associate in Commercial Science, and Associate in Arts. These were the same programs offered until SY 1955-56.</p>
 
-    <script src="{{ asset('script.js') }}"></script>
- 
+                <p>The enrollment in all levels increased year after year. It had no fewer than 400 students for SY 1955-56. This trend inspired the Administration to come
+                    up with 4-year courses. These were: Bachelor of Science in Commerce (BSC); Bachelor of Science in Education (BSE); Bachelor of Science in Elementary
+                    Education (BSEED); and Bachelor of Arts (AB). These courses sparked a new high in enrollment of no less than 600 for SY 1956-57.</p>
 
-</body>
-</html>
+                <p>Nonetheless, during SY 1957-58, the Administration could not sink its roots deeper due to interventions from influential stockholders. Faced with
+                    strong resistance from the former, the latter opted to close AC and released the same for sale. Mr. Federico C. Chanjueco, who was then the dean
+                    of Commerce of Urios College (UC), also in Butuan City, acquired AC. He reopened it for SY 1959-60 with a new name: Agusan College of Commerce and
+                    Technology (ACCT) to shake off its misfortune. But by reason of documentation problem, he decided to retain its original AC identity for SY 1960-61.</p>
+
+                <p>In SY 1959-60, AC was reopened. It had only 236 enrollees. In an effort to hike its population, Mr. Chanjueco, the president and director, facilitated the
+                    opening of new courses. These were: Associate in Mechanical Engineering (AME); Associate in Secretarial Sciences (ASS); and Electronic Technology
+                    (ET), Radio Repair and Practical Electricity were included as vocational subjects in the high school. True to expectation, the enrollment soared up to a
+                    little less than 700 in SY 1961-62.</p>
+
+                <p>Inspired by the uptrend in student population, the Administration, starting SY 1962-63, added more programs, such as: Master of Arts in Education
+                    (MAED) and Master of Science in Business Administration (MSBA). Three (3) years thereafter (SY 1965-66), courses were offered: Bachelor of Laws (LLB);
+                    Bachelor of Science in Criminology (BS Crim); and Bachelor of Science in Accountancy (BSA). With the end in view of complementing these programs,
+                    the Administration employed new faculty, who were second to none in their fields of discipline, from Butuan City and elsewhere.</p>
+
+                <p>The shining glory of AC with respect to student population was during SY 1968-69. The enrollment for the 1st semester scaled over the 5,000 mark.
+                    The Administration, to accommodate them, leased six (6) commercial buildings within the hub of the city. However, by a stroke of bad luck during the
+                    2nd semester of that School year, a big fire razed down the city’s business center, reducing to ground zero the school’s original structure and sparing
+                    none of its leased buildings.</p>
+
+                <p>In an attempt to salvage the situation, the Administration took no time to rent eight (8) commercial buildings at separate locations.
+                    Subsequently, AC acquired some of them, such as: Spandonis Bldg. (now the HS Bldg.); Macasero Bldg. (now Administration Building);
+                    and Patanao Bldg. Later, it added: the Ordona compound (College Building), the Marcos Calo lot (1,000 sqm.); six (6) has Lot at KM.3, Brgy. Libertad
+                    (Elem. Dept.); Busa Bldg.(FCC Residence); and the 16-has. Land at Brgy. Bancasi (Venue of off-campus activities).</p>
+
+                <p>In spite of the efforts of the Administration with Sir. Chanjueco at the helm, a Summa Cum Laude BSC graduate from FEU, the enrollment for
+                    SY 1969-70 decreased by 40% from that of SY 1968-69. When Martial Law was declared in 1972, the enrollment further dwindled to no more than 2,000.</p>
+
+                <p>Prior to the opening of SY 1972-73, the Administration closed its LLB and BSCrim. Much earlier, it shut down its voc- tech courses, including this of a
+                    2-year Mechanical Engineering course. Correspondingly, it reduced its faculty to what was essential.</p>
+
+                <p>Since then, the enrollment continued to decline. It was theorized by Sir. Chanjueco, a CPA Board topnotcher, that one of the reasons for it was the
+                    school’s inferior physical plant aside from being scattered at different locations.</p>
+
+                <p>Agusan Colleges, to even the field, constructed a 3-storey concrete structure during SY 1999-2000 at its Ariola Compound was inaugurated in time
+                    for its Golden Anniversary on February 14, 2001. On February 14, 2001, AC celebrated its Golden Year Anniversary.</p>
+
+                <p>On August 27, 2001, AC Founder and President Federico Cueto Chanjueco Jr. passed away.</p>
+
+                <p>Shortly after the elder Chanjueco was laid to rest, the School’s set-up was reengineered. Dr. Hercules R. Chanjueco, Ed.D, CPA, +EE were installed by
+                    the stockholders-children as president. Later, he was elected chairman of the new board of directors. (BoD).</p>
+
+                <p>The newly constituted BoD mandated the reorganization of the management hierarchy. The top management, which used to be composed of
+                    President-director and assistant director, was changed to president, executive vice president (EVP) and three(3) vice president (VP) for
+                    administrative, academic and student affairs.</p>
+
+                <p>The new president, Dr. Hercules R. Chanjueco, appointed Ms. Thucydides Chanjueco-Sadiasa EVP; Capt. Hannibal R. Chanjueco, VP for Administrative
+                    affairs; Mr. Hamilcar R. Chanjueco, VP for Academic Affairs; and Mr. Ediseo H. Tidalgo, Vp for Student Affairs. These appointments were subsequently
+                    confirmed by the BoD.</p>
+
+                <p>With the green light from the BoD, the president introduced improvements to the Administration Bldg. in 2002. Late in 2003, he managed to
+                    acquire a lot consisting of 1,000 sqm. intended for the elementary and high school structures. This site is just the immediate south of the
+                    Administration Bldg. and stone throw from the new College Bldg.</p>
+
+                <p>During SY 2003-2004, the total student population was 1,859 in all levels. This figure was broken down into: Graduate, 100; Tertiary, 1,472; HS 205;
+                    and Elem, 82. This number does not include those from special courses. On the other hand, the faculty count (part-time and full-time), was 74.
+                    When apportioned by level: Graduate, 9; Tertiary, 50; Secondary and Elementary at 8 each.</p>
+
+                <p>As of SY 2004-2005, AC offers the following programs: MAEd, MSBA, BSC, BEEd, BSEd, and Bachelor of Science in Math (BSM), 2-Year computer Secretarial
+                    Course (CSC), Complete Elementary and Secondary Education. It also offers TESDA-regulated courses, such as: 1 yr. Data Encoder; 2-yr. Office Administration;
+                     and 2-yr. Computer Technician. More so, it offered special course: Microsoft Word, Microsoft Excel, Microsoft Publisher, and Database Management.</p>
+
+                <p>November 2008, the ground breaking was done for the 1st floor of the new building that will house the Bachelor of Science in Hotel and Restaurant
+                    Management (BSHRM).</p>
+
+                <p>June 4, 2010, CHED permitted AC to open Bachelor of Science of Information Technology (BSIT)</p>
+
+                <p>May 25, 2010, CHED issued Government Recognition for AC to operate Bachelor of Science Public Administration (BSPA).</p>
+
+                <p>May 25, 2011, CHED issued Government Recognition for AC to conduct and operate Bachelor of Science in Accounting Technology (BSAT).</p>
+
+                <p>Year 2012, the ground breaking was done for the new 2 storey building for the Bachelor of Science in Hotel and Restaurant Management (BSHRM).</p>
+
+                <p>Year 2012, AC joined the 1st Butuan Dragon Boat Competition, AC team bagged in that competition.</p>
+
+                <p>September 19, 2013, CHED issued Government Recognition for AC to conduct and operate the Bachelor of Science in Hotel and Restaurant
+                    Management (BSHRM).</p>
+
+                <p>September 26, 2013, CHED issued Government Recognition for AC to operate the Bachelor of Science in Information Technology (BSIT).</p>
+
+                <p>April 16, 2014, the Department of Education (DepEd) issued Government Recognition for AC to operate the Kindergarten.</p>
+
+                <p>September 28, 2015, DepEd issued Government Recognition for AC to operate the Senior High School for Accountancy,
+                    Business and Management (ABM), Humanities and Social Sciences (HUMSS) and General Academic Strand (GAS).</p>
+            </div>
+        </div>
+    </div>
+@endsection
