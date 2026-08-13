@@ -5,27 +5,6 @@
 @endsection
 
 @section('content')
-<!-- ✅ JavaScript Toggle Functions -->
-<script>
-    const toggleBtn = document.getElementById('customMenuToggle');
-    const closeBtn = document.getElementById('customMenuClose');
-    const routeWrapper = document.getElementById('routeWrapper');
-
-    toggleBtn.addEventListener('click', () => {
-        routeWrapper.classList.add('open');
-    });
-
-    closeBtn.addEventListener('click', () => {
-        routeWrapper.classList.remove('open');
-    });
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 768) {
-            routeWrapper.classList.remove('open');
-        }
-    });
-</script>
-
     <div class="container mt-5">
         <div class="card">
             <div id="rs" class="card-header text-center">

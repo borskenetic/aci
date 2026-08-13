@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.sec')
 
-<head>
-    <meta charset="UTF-8">
-    <title>Edit E-Book</title>
+@section('title', 'Edit E-Book')
+
+@section('styles')
     <link rel="stylesheet" href="{{ asset('css/ebooks/edit.css') }}">
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-</head>
+@endsection
 
-<body class="bg-light">
+@section('content')
     <div class="container mt-5">
         <div class="card p-4 shadow-sm">
             <h1 class="mb-4">Edit E-Book</h1>
@@ -125,7 +123,4 @@
         // Trigger once on page load so that "All Programs" loads all courses by default
         $('#program').trigger('change');
     </script>
-    </script>
-</body>
-
-</html>
+@endsection

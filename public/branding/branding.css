@@ -1,0 +1,68 @@
+:root {
+  /*
+   * Primary brand tokens (ACI / University of Southern Mindanao)
+   */
+  --brand-primary: #009b9d;
+  --brand-accent: #1f1d1e;
+  --brand-text-dark: #333;
+  --brand-text-light: #fff;
+  --brand-font-family: 'Inter', 'Segoe UI', sans-serif;
+
+  /*
+   * App-wide branding tokens (staff + kiosk)
+   */
+  --brand-page-bg: #f5f7fa;
+  --brand-school-name-color: #009b9d;
+
+  --brand-nav-link: #009b9d;
+  --brand-nav-link-active: #009b9d;
+  --brand-nav-hover-bg: #1f1d1e;
+  --brand-nav-hover-text: #009b9d;
+
+  --brand-logout-bg: #009b9d;
+  --brand-logout-text: #ffffff;
+
+  --brand-button-bg: #009b9d;
+  --brand-button-text: #ffffff;
+  --brand-button-hover-bg: #1f1d1e;
+  --brand-button-hover-text: #ffffff;
+
+  --brand-danger-bg: #009b9d;
+  --brand-danger-hover-bg: #1f1d1e;
+  --brand-danger-text: #ffffff;
+
+  --brand-success-bg: #009b9d;
+  --brand-success-hover-bg: #1f1d1e;
+  --brand-success-text: #ffffff;
+
+  --brand-footer-bg: #009b9d;
+
+  --brand-kiosk-gradient-from: #009b9d;
+  --brand-kiosk-gradient-to: #1f1d1e;
+
+  --brand-sidebar-active-bg: #ffffff;
+  --brand-sidebar-active-text: #009b9d;
+
+  /*
+   * Backwards-compatible vars used by existing landing CSS
+   */
+  --primary-yellow: var(--brand-primary);
+  --secondary-green: var(--brand-accent);
+  --text-dark: var(--brand-text-dark);
+  --text-light: var(--brand-text-light);
+}
+
+/*
+ * Bootstrap theme variables (affects `.btn-primary`, etc.)
+ * Put this AFTER bootstrap.min.css in your layouts.
+ */
+:root {
+  --bs-primary: var(--brand-primary);
+  --bs-primary-rgb: 0, 155, 157;
+
+  --bs-success: var(--brand-primary);
+  --bs-success-rgb: 0, 155, 157;
+
+  --bs-link-color: var(--brand-primary);
+  --bs-link-hover-color: var(--brand-accent);
+}

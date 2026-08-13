@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit User</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+@extends('layouts.sec')
 
+@section('title', 'Edit User')
+
+@section('styles')
     <style>
-        body {
-            background-color: #f0f2f5;
-            font-family: 'Segoe UI', sans-serif;
-        }
         .card {
             border-radius: 16px;
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
@@ -24,8 +15,9 @@
             text-align: center;
         }
     </style>
-</head>
-<body>
+@endsection
+
+@section('content')
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -83,5 +75,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+@endsection

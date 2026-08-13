@@ -5,92 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@yield('title', 'Pantas Library')</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset(config('branding.css_path')) }}">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/books/index.css') }}">
     <link rel="stylesheet" href="{{ asset('css/site-responsive.css') }}">
+    @php
+        $adminSidebarCssPath = public_path('css/layout/admin-sidebar.css');
+        $adminSidebarCssVer = is_file($adminSidebarCssPath) ? filemtime($adminSidebarCssPath) : time();
+    @endphp
+    <link rel="stylesheet" href="{{ asset('css/layout/admin-sidebar.css') }}?v={{ $adminSidebarCssVer }}">
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 
     @stack('styles')
 </head>
 
-<body>
+<body class="admin-shell-body">
+    @include('layouts.partials.admin-sidebar')
 
-    {{-- NAVBAR --}}
-    <div class="d-flex align-items-center px-4 py-2 flex-wrap staff-top-bar" style="background-color: white; position: relative;">
-        <img src="{{ asset('images/pantasLogo.png') }}" alt="New Logo" class="header-logo-img" />
-        <h1 class="school-name mb-0 ms-2"></h1>
-
-        <button type="button" id="customMenuToggle" class="d-lg-none toggle-btn" aria-label="Open menu">&#9776;</button>
-
-        <div id="routeWrapper" class="d-flex gap-2 flex-wrap ms-lg-auto responsive-nav">
-            <button type="button" id="customMenuClose" class="d-lg-none close-btn" aria-label="Close menu">&times;</button>
-
-            <a class="btn0 btn-sm">Home</a>
-
-            <div class="attendance_dropdown">
-                <button class="attendance_dropdown-button">Attendance</button>
-                <div class="attendance_dropdown-content">
-                    <a href="{{ route('attendance.scan') }}">Attendance</a>
-                    <a href="{{ route('attendance_logs.index') }}">Attendance-logs</a>
-                    <a href="{{ route('attendance.changeVideo') }}">Change Video</a>
-                </div>
-            </div>
-
-            <a href="{{ route('landing') }}" class="btn2 btn-sm">OPAC</a>
-
-            <div class="logs_dropdown">
-                <button class="logs_dropdown-button">Create Account</button>
-                <div class="logs_dropdown-content">
-                    <a href="{{ route('users.create') }}">Create Account</a>
-                    <a href="{{ route('users.index') }}">View Users</a>
-                </div>
-            </div>
-
-            <a href="{{ route('prospectus.index') }}" class="btn3 btn-sm">Prospectus Manager</a>
-
-            <div class="logs_dropdown">
-                <button class="logs_dropdown-button">Circulation</button>
-                <div class="logs_dropdown-content">
-                    <a href="{{ route('logs.index') }}">Circulation</a>
-                    <a href="{{ route('book.report.download') }}">Download Book Report</a>
-                    <a href="{{ route('students.report') }}">Student Report</a>
-                </div>
-            </div>
-
-            <a href="{{ route('files.index') }}" class="btn4 btn-sm">Repository</a>
-
-            <div class="logs_dropdown">
-                <button class="logs_dropdown-button">Room Reservations</button>
-                <div class="logs_dropdown-content">
-                    <a href="{{ route('rooms.index') }}">Manage Rooms</a>
-                    <a href="{{ route('rooms.book') }}">Book a Room</a>
-                    <a href="{{ route('rooms.schedule') }}">View Schedule</a>
-                    <a href="{{ route('rooms.pending') }}">Pending Reservations</a>
-                    <a href="{{ route('rooms.logs') }}">Reservation Logs</a>
-                    <a href="{{ route('admin.attendance.feedbacks') }}">Attendance feedback</a>
-                </div>
-            </div>
-
-            <form action="{{ route('logout') }}" method="POST" class="mb-0">
-                @csrf
-                <button type="submit" class="btn5">Logout</button>
-            </form>
-
+    <main class="admin-main">
+        <div class="admin-sidebar-trigger-bar">
+            <button class="admin-sidebar-trigger" id="sidebarCollapseBtn" type="button" aria-label="Toggle sidebar" title="Toggle sidebar">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M9 3v18"/>
+                </svg>
+            </button>
         </div>
-    </div>
 
-    {{-- BANNER --}}
-    <div class="head">
-        <img src="{{ asset('images/Bannernew.jpg') }}" alt="Banner" class="banner-img">
-    </div>
+        <div class="head">
+            <img src="{{ asset('images/Bannernew.jpg') }}" alt="Banner" class="banner-img">
+        </div>
 
-    {{-- MAIN CONTENT --}}
-    <div class="container py-3">
-        @yield('content')
-    </div>
+        <div class="container py-3">
+            @yield('content')
+        </div>
+    </main>
 
-    {{-- FOOTER --}}
     <footer>
         <div class="a51-footer">
             <h4 style="color: white; font-size:15px">Pantas © 2025. All Rights Reserved.</h4>
@@ -98,7 +52,6 @@
     </footer>
 
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/site-nav.js') }}"></script>
 
     @stack('scripts')
 </body>

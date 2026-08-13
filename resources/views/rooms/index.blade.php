@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manage Rooms</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-</head>
-<body class="bg-light p-4">
+@extends('layouts.sec')
+
+@section('title', 'Manage Rooms')
+
+@section('content')
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Manage Rooms</h2>
@@ -47,5 +44,4 @@
         </tbody>
     </table>
 </div>
-</body>
-</html>
+@endsection

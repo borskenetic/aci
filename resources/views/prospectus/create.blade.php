@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Course to Prospectus</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/prospectus/create.css') }}">
-</head>
-<body>
+@extends('layouts.sec')
 
+@section('title', 'Add Course to Prospectus')
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/prospectus/create.css') }}">
+@endsection
+
+@section('content')
 <div class="custom-modal">
     <div class="custom-title text-center" style="color:#932c27;">Add Course to Prospectus</div>
 
@@ -45,6 +44,4 @@
         </div>
     </form>
 </div>
-
-</body>
-</html>
+@endsection

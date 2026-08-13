@@ -5,28 +5,6 @@
 @endsection
 
 @section('content')
-
-<!-- ✅ JavaScript Toggle Functions -->
-<script>
-    const toggleBtn = document.getElementById('customMenuToggle');
-    const closeBtn = document.getElementById('customMenuClose');
-    const routeWrapper = document.getElementById('routeWrapper');
-
-    toggleBtn.addEventListener('click', () => {
-        routeWrapper.classList.add('open');
-    });
-
-    closeBtn.addEventListener('click', () => {
-        routeWrapper.classList.remove('open');
-    });
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 768) {
-            routeWrapper.classList.remove('open');
-        }
-    });
-</script>
-    
 <div class="container">
     <div class="card p-4">
         <h3 id="cnu" class="text-center mb-4">Create New User</h3>

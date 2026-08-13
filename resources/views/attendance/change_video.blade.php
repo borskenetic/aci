@@ -36,17 +36,7 @@
         </div>
     </div>
 
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script>
-        // Hamburger Toggle
-        const toggleBtn = document.getElementById('customMenuToggle');
-        const closeBtn = document.getElementById('customMenuClose');
-        const routeWrapper = document.getElementById('routeWrapper');
-
-        toggleBtn.addEventListener('click', () => { routeWrapper.classList.add('open'); });
-        closeBtn.addEventListener('click', () => { routeWrapper.classList.remove('open'); });
-        window.addEventListener('resize', () => { if(window.innerWidth >= 768){ routeWrapper.classList.remove('open'); } });
-
         // Video size check
         const videoInput = document.getElementById('videoUpload');
         videoInput.addEventListener('change', function() {

@@ -11,7 +11,7 @@ const track = document.getElementById('carouselTrack');
 let scrollAmount = 0;
 
 function goToEBookPage() {
-    window.location.href = '/ebooks';
+    window.location.href = '/opac?view=ebooks';
 }
 
 function opacBookDetailUrl(bookId) {

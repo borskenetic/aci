@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Room Reservations</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+@extends('layouts.sec')
 
+@section('title', 'Manage Room Reservations')
+
+@section('styles')
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
         .page-header {
             display: flex;
             align-items: center;
@@ -28,8 +22,9 @@
             margin: 2px;
         }
     </style>
-</head>
-<body>
+@endsection
+
+@section('content')
 <div class="container py-4">
     <div class="page-header">
         <h2 class="mb-0">Manage Room Reservations</h2>
@@ -115,7 +110,4 @@
         </div>
     </div>
 </div>
-
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-</body>
-</html>
+@endsection

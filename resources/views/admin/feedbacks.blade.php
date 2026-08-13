@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Attendance Feedback Report</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-</head>
+@extends('layouts.sec')
 
-<body style="background:#f4f6f9">
+@section('title', 'Attendance Feedback Report')
 
+@section('content')
 <div class="container py-5">
 
     {{-- HEADER --}}
@@ -195,6 +191,4 @@
     </div>
 
 </div>
-
-</body>
-</html>
+@endsection

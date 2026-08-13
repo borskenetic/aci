@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Subject</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.sec')
 
+@section('title', 'Add Subject')
+
+@section('content')
 <div class="container mt-5" style="max-width: 600px;">
     <h3 class="text-center" style="color: #932c27;">Add Subject to {{ $course }} - {{ $year }}</h3>
 
@@ -36,6 +32,4 @@
         </div>
     </form>
 </div>
-
-</body>
-</html>
+@endsection

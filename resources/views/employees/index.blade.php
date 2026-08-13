@@ -1,46 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Registered Faculty</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+@extends('layouts.sec')
+
+@section('title', 'Registered Faculty')
+
+@section('styles')
     <link rel="stylesheet" href="{{ asset('css/students/students.css') }}">
-</head>
-<body>
+@endsection
 
-<!-- Header with Left Logo and Right Logout Button -->
-<div class="d-flex align-items-center px-4 py-2 flex-wrap" style="background-color: white; position: relative;">
-    <img src="{{ asset('images/pantasLogo.png') }}" alt="New Logo" class="header-logo-img" />
-    <h1 class="school-name mb-0 ms-2"></h1>
-
-    <button id="customMenuToggle" class="d-md-none toggle-btn">&#9776;</button>
-
-    <div id="routeWrapper" class="d-flex gap-2 flex-wrap ms-auto responsive-nav">
-        <button id="customMenuClose" class="d-md-none close-btn">&times;</button>
-
-        <a href="{{ route('book.index') }}" class="btn0 btn-sm">Home</a>
-        <a class="btn2 btn-sm" href="{{ route('attendance.scan') }}">Attendance</a>
-        <a class="btn2 btn-sm" href="{{ route('attendance_logs.index') }}">Attendance-logs</a>
-        <a href="{{ route('students.report') }}" class="btn2 btn-sm">ID Generation</a>
-        <a href="{{ route('files.index') }}" class="btn4 btn-sm" hidden>Repository</a>
-        <form action="{{ route('logout') }}" method="POST" class="mb-0">
-            @csrf
-            <button type="submit" class="btn5">Logout</button>
-        </form>
-    </div>
-</div>
-
-<!-- ✅ JavaScript Toggle Functions -->
-<script>
-    const toggleBtn = document.getElementById('customMenuToggle');
-    const closeBtn = document.getElementById('customMenuClose');
-    const routeWrapper = document.getElementById('routeWrapper');
-    toggleBtn.addEventListener('click', () => routeWrapper.classList.add('open'));
-    closeBtn.addEventListener('click', () => routeWrapper.classList.remove('open'));
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 768) routeWrapper.classList.remove('open');
-    });
-</script>
-
+@section('content')
 <div class="container mt-5">
     <div class="card">
         <div class="card-header text-center">
@@ -148,8 +114,4 @@
         </div>
     </div>
 </div>
-
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-</body>
-</html>
+@endsection

@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.sec')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>View Book</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+@section('title', 'View Book')
+
+@section('styles')
     <link rel="stylesheet" href="{{ asset('css/books/show.css') }}">
-</head>
+@endsection
 
-<body>
+@section('content')
     <div class="container-fluid px-3 px-md-5 mt-5">
         <h1 class="book-heading">
             <span class="text ms-2">Book Details</span>
@@ -335,6 +332,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+@endsection

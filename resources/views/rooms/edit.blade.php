@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Room</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-</head>
-<body class="bg-light p-4">
+@extends('layouts.sec')
+
+@section('title', 'Edit Room')
+
+@section('content')
 <div class="container mt-4">
     <h2 class="mb-4">Edit Room</h2>
 
@@ -34,5 +31,4 @@
         </div>
     </form>
 </div>
-</body>
-</html>
+@endsection

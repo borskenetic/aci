@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.sec')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Book</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+@section('title', 'Edit Book')
+
+@section('styles')
     <link rel="stylesheet" href="{{ asset('css/books/edit.css') }}">
+@endsection
 
-
-</head>
-
-<body>
+@section('content')
     <div class="edit-container">
         <div class="edit-header">📝 Edit Book</div>
 
@@ -168,9 +163,4 @@
     </script>
 
     @include('books.partials.catalog_courses_script')
-
-    @stack('scripts')
-
-</body>
-
-</html>
+@endsection

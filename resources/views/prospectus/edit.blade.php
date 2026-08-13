@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Prospectus</title>
+@extends('layouts.sec')
+
+@section('title', 'Edit Prospectus')
+
+@section('styles')
     <link rel="stylesheet" href="{{ asset('css/prospectus/edit.css') }}">
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-</head>
-<body class="bg-light p-4">
+@endsection
+
+@section('content')
 <div class="container">
     <h3>Edit Subject</h3>
     <form method="POST" action="{{ route('prospectus.update', $entry->id) }}" class="card p-4 shadow-sm">
@@ -28,5 +29,4 @@
         <a href="{{ route('prospectus.index', ['course' => $entry->course]) }}" class="btn btn-danger">Cancel</a>
     </form>
 </div>
-</body>
-</html>
+@endsection

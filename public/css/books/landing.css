@@ -5,8 +5,129 @@
     font-family: Arial, sans-serif;
 }
 
-body {
-    background: #f4f6f9;
+body,
+.opac-body {
+    background: #eef2f7;
+}
+
+/* OPAC search results header */
+.opac-search-header {
+    background: linear-gradient(160deg, var(--brand-button-bg, #009b9d) 0%, #007a7c 55%, var(--brand-button-hover-bg, #1f1d1e) 100%);
+    color: var(--brand-button-text, #fff);
+    padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem) clamp(1.5rem, 3.5vw, 2.25rem);
+}
+
+.opac-search-header-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.35rem;
+}
+
+.opac-search-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: inherit;
+}
+
+.opac-search-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.opac-search-kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.opac-search-logo {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    object-fit: cover;
+}
+
+.opac-search-title {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 700;
+    line-height: 1.35;
+    color: #fff;
+}
+
+.opac-search-header-form {
+    width: 100%;
+}
+
+.opac-search-header-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0.75rem;
+}
+
+.opac-search-input {
+    flex: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 0 1.15rem;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.opac-search-input:focus {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.opac-search-btn {
+    height: 50px;
+    padding: 0 1.35rem;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+    background: var(--brand-success-bg, #1f1d1e);
+    border-color: var(--brand-success-bg, #1f1d1e);
+}
+
+.opac-search-btn:hover {
+    background: var(--brand-success-hover-bg, #161515);
+    border-color: var(--brand-success-hover-bg, #161515);
+    color: var(--brand-success-text, #fff);
+}
+
+.opac-search-header-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.25rem;
+    margin-top: 0.85rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.opac-search-query-label strong {
+    color: #fff;
+}
+
+.opac-search-clear-link {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.opac-search-clear-link:hover {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 header {
@@ -31,14 +152,15 @@ header {
     padding: 8px 14px;
     border-radius: 999px;
     text-decoration: none;
-    color: #009b9d;
+    color: var(--brand-nav-link, #009b9d);
     font-weight: 600;
     transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
 .opac-nav-link:hover {
-    background-color: #1f1d1e;
-    color: #009b9d
+    background-color: var(--brand-nav-hover-bg, #ffffff);
+    color: var(--brand-nav-hover-text, #1f1d1e);
+    transform: scale(1.03);
 }
 
 .opac-nav-link:focus-visible {
@@ -61,7 +183,7 @@ header {
 
 .logout-btn {
     padding: 10px 30px;
-    background-color: #f90;
+    background-color: var(--brand-button-hover-bg, #f90);
     border: none;
     border-radius: 4px;
     color: white;
@@ -99,6 +221,276 @@ header {
     display: flex;
 }
 
+.opac-results-shell {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(1.25rem, 3vw, 2rem);
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 3vw, 1.75rem) clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.opac-facets {
+    width: 280px;
+    flex: 0 0 280px;
+    position: sticky;
+    top: 1rem;
+}
+
+.opac-filters-panel {
+    background: #fff;
+    border: 1px solid #009b9d;
+    border-radius: 14px;
+    padding: 1.35rem;
+    box-shadow: 0 4px 18px rgba(15, 42, 92, 0.05);
+}
+
+.opac-filter-group + .opac-filter-group {
+    margin-top: 1.35rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid #009b9d;
+}
+
+.opac-filter-heading {
+    margin: 0 0 0.85rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #009b9d;
+}
+
+.opac-filter-result-count {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--brand-nav-link, #009b9d);
+    line-height: 1.2;
+}
+
+.opac-filter-select {
+    width: 100%;
+    min-height: 42px;
+    border-radius: 10px;
+    border-color: #009b9d;
+    font-size: 0.95rem;
+}
+
+.opac-facet-item {
+    padding: 0.75rem 0.9rem;
+    margin-bottom: 0.35rem;
+    border-radius: 10px;
+    color: #1e293b;
+    font-size: 0.95rem;
+    background: #009b9d;
+}
+
+.opac-facet-item.is-active {
+    background: color-mix(in srgb, var(--brand-nav-link, #009b9d) 10%, white);
+    border-left: 4px solid var(--brand-nav-link, #009b9d);
+    font-weight: 700;
+}
+
+.opac-facet-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 0;
+    color: var(--brand-nav-link, #009b9d);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.opac-facet-link:hover {
+    text-decoration: underline;
+}
+
+.opac-facet-form {
+    margin: 0;
+}
+
+/* Legacy facet cards — kept for copies page compatibility */
+.opac-facet-card {
+    background: #fff;
+    border: 1px solid #e6edf2;
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.opac-facet-card--primary {
+    padding: 0;
+    overflow: hidden;
+}
+
+.opac-facet-card--primary .opac-facet-title {
+    padding: 1rem 1.1rem;
+    background: #fff;
+    color: var(--brand-nav-link, #22333b);
+    border-bottom: 1px solid #22333b;
+}
+
+.opac-facet-title {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.opac-facet-sub {
+    margin-bottom: 8px;
+}
+
+.opac-results-panel {
+    flex: 1;
+    min-width: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(15, 42, 92, 0.05);
+    overflow: hidden;
+}
+
+.opac-results-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1.35rem 1.5rem;
+    border-bottom: 1px solid #eef2f7;
+    background: #fafbfd;
+}
+
+.opac-results-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.opac-results-subtitle {
+    margin: 0.35rem 0 0;
+    font-size: 0.92rem;
+    color: #64748b;
+}
+
+.opac-results-empty {
+    padding: clamp(2.5rem, 6vw, 4rem) 1.5rem;
+    text-align: center;
+}
+
+.opac-results-empty-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #334155;
+}
+
+.opac-results-empty-text {
+    margin: 0;
+    color: #64748b;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.55;
+}
+
+.opac-results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 1.25rem 1.5rem 1.75rem;
+}
+
+.opac-result-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.1rem;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #eef2f7;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.opac-result-row:hover {
+    border-color: #dbe2ea;
+    box-shadow: 0 10px 24px rgba(15, 42, 92, 0.08);
+    transform: translateY(-1px);
+}
+
+.opac-result-row--ebook {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+}
+
+.opac-result-row--ebook:hover .opac-result-title-link {
+    text-decoration: underline;
+}
+
+.opac-result-title-link {
+    color: var(--brand-nav-link, #22333b);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.opac-result-title-link:hover {
+    text-decoration: underline;
+}
+
+.opac-results-panel .pagination {
+    margin: 0 1.5rem 1.75rem;
+}
+
+@media (max-width: 991.98px) {
+    .opac-results-shell {
+        flex-direction: column;
+    }
+
+    .opac-facets {
+        width: 100%;
+        flex: 0 0 auto;
+        position: static;
+    }
+
+    .opac-filters-panel {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem 1.25rem;
+        padding: 1.15rem;
+    }
+
+    .opac-filter-group + .opac-filter-group {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .opac-search-header-row {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 576px) {
+    .opac-search-header-row {
+        flex-direction: column;
+    }
+
+    .opac-search-btn {
+        width: 100%;
+    }
+
+    .opac-results-list {
+        padding: 1rem;
+    }
+
+    .opac-results-head {
+        padding: 1.1rem 1rem;
+    }
+}
+
 .sidebar {
     width: 15%;
     background-color: #ffffff;
@@ -114,8 +506,8 @@ header {
 .sidebar h3 {
     margin-bottom: 10px;
     font-size: 1.1rem;
-    background-color: #009b9d;
-    color: white;
+    background-color: var(--brand-nav-link, #009b9d);
+    color: var(--brand-button-text, #ffffff);
     padding: 12px;
     text-align: center;
     border-top-right-radius: 20px;
@@ -150,18 +542,19 @@ header {
     text-decoration: none;
 }
 
-.sidebar a.active {
-    background: #009b9d;
-    color: #ffffff;
-    font-weight: bold;
-}
 .sidebar a:hover {
-    background: #1f1d1e;
+    background: #f0f0f0;
+}
+
+.sidebar a.active {
+    background: var(--brand-nav-link, #009b9d);
+    color: #000;
+    font-weight: bold;
 }
 
 .sidebar button.active {
-    background: #f90;
-    color: white;
+    background: var(--brand-button-hover-bg, #f90);
+    color: var(--brand-button-text, #ffffff);
 }
 
 .main-content {
@@ -202,10 +595,6 @@ header {
     padding-right: 5px;
 }
 
-#nab{
-color: #009b9d !important;
-}
-
 /* Optional nicer scrollbar */
 .courses-list::-webkit-scrollbar{
     width: 6px;
@@ -219,6 +608,11 @@ color: #009b9d !important;
 .courses-list::-webkit-scrollbar-thumb:hover{
     background: #555;
 }
+
+        #nab{
+        color: #009b9d  !important;
+        }
+
 #searchBar {
 
     width: 100%;
@@ -271,7 +665,7 @@ color: #009b9d !important;
 }
 
 #nab{
-    color: #1f7902;
+    color: var(--brand-nav-link, #009b9d);
 }
 
 #cartButton {
@@ -279,18 +673,8 @@ color: #009b9d !important;
     font-weight: 500;
 }
 #cartButton:hover{
-            color: #ffe202;
+            color: var(--brand-nav-link-active, #ffe202);
 }
-
-        #search{
-        color: #ffffff !important;
-        background: #009b9d !important;
-        }
-        #search:hover {
-        color: #ffffff !important;
-        background: #1f1d1e !important;
-        }
-
 
 .book-grid {
     display: grid;
@@ -347,6 +731,17 @@ footer {
     justify-content: center;
     align-items: center;
     z-index: 999;
+}
+
+#loanTermsModal.modal {
+    z-index: 1100;
+}
+
+#loanTermsModal .modal-content {
+    display: block;
+    flex-direction: column;
+    max-width: 440px;
+    width: 92%;
 }
 
 .modal-content {
@@ -450,10 +845,10 @@ footer {
 }
 
 @media (max-width: 768px) {
-    #nab {
+    #nab,
+    .opac-new-arrivals-title {
         margin-left: 0 !important;
-        font-size: clamp(1.1rem, 5vw, 1.75rem);
-        padding: 0 12px;
+        font-size: clamp(1.1rem, 5vw, 1.65rem);
     }
 
     .carousel .arrow.left {
@@ -532,7 +927,7 @@ footer {
 
 #e-book {
     text-align: center;
-    background-color: #1f7902;
+    background-color: var(--brand-button-bg, #009b9d);
     border-radius: 40px;
 
     width: 200px;
@@ -914,7 +1309,7 @@ footer {
 }
 
 .opac-breadcrumb {
-    color: #1f7902;
+    color: #009b9d;
     font-weight: 600;
 }
 
@@ -958,8 +1353,8 @@ footer {
 }
 
 .opac-tab.is-active {
-    color: #0d47a1;
-    border-bottom-color: #0d47a1;
+    color: var(--brand-nav-link, #009b9d);
+    border-bottom-color: var(--brand-nav-link, #009b9d);
     font-weight: 600;
 }
 
@@ -1038,15 +1433,235 @@ footer {
     word-break: break-word;
 }
 
-/* OPAC landing: new arrivals → search → results only after search */
-.opac-new-arrivals-title {
-    font-family: 'Rubik', sans-serif;
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    font-weight: 600;
-    color: #1f7902;
-    margin-left: 0 !important;
+/* OPAC landing: search hero → new arrivals → results after search */
+.opac-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+.opac-page-fill {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.opac-public-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.opac-hero-search {
+    background: linear-gradient(160deg, var(--brand-button-bg, #009b9d) 0%, #007a7c 70%, var(--brand-button-hover-bg, #1f1d1e) 100%);
+    color: #fff;
+    padding: clamp(2rem, 5vw, 3.5rem) 1.25rem clamp(2.25rem, 5vw, 3.75rem);
+}
+
+.opac-hero-search-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.opac-hero-kicker {
+    margin: 0 0 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.opac-hero-title {
+    margin: 0 0 0.65rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+}
+
+.opac-hero-subtitle {
+    margin: 0 auto 1.5rem;
+    max-width: 34rem;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.opac-hero-search-form {
+    max-width: 100%;
+}
+
+.opac-hero-search-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0.65rem;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.opac-hero-search-input {
+    flex: 1;
+    min-width: 0;
+    height: 52px;
+    padding: 0 1.15rem;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.opac-hero-search-input:focus {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18), 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+.opac-hero-search-btn {
+    height: 52px;
+    padding: 0 1.5rem;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+    background: var(--brand-success-bg, #009b9d);
+    border-color: var(--brand-success-bg, #009b9d);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.opac-hero-search-btn:hover {
+    background: var(--brand-success-hover-bg, #1f1d1e);
+    border-color: var(--brand-success-hover-bg, #1f1d1e);
+}
+
+.opac-search-hint {
+    margin: 1rem auto 0;
+    max-width: 32rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.opac-new-arrivals-block {
+    padding: clamp(1.75rem, 4vw, 2.5rem) 1.25rem 2.5rem;
+    background: #fff;
+}
+
+.opac-new-arrivals-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.opac-section-head {
+    margin-bottom: 1.25rem;
+}
+
+.opac-new-arrivals-title {
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.25rem, 3vw, 1.65rem);
+    font-weight: 700;
+    color: var(--brand-nav-link, #009b9d);
+}
+
+.opac-section-subtitle {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #009b9d;
+}
+
+.opac-new-arrivals-block .carousel {
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: visible;
+}
+
+.opac-new-arrivals-block .carousel-container {
+    padding: 0 2.5rem;
+}
+
+.opac-new-arrivals-block .carosel {
+    flex: 0 0 148px;
+    cursor: pointer;
+    border-radius: 12px;
+    padding: 0.65rem;
+    background: #f8fafc;
+    border: 1px solid #e8edf2;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.opac-new-arrivals-block .carosel:hover {
+    transform: translateY(-4px);
+    border-color: #cbd5e1;
+    box-shadow: 0 12px 28px rgba(15, 42, 92, 0.12);
+}
+
+.opac-new-arrivals-block .carosel-cover {
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #e2e8f0;
+}
+
+.opac-new-arrivals-block .carosel-cover img,
+.opac-new-arrivals-block .carosel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.opac-new-arrivals-block .carosel-title,
+.opac-new-arrivals-block .carosel p {
+    margin: 0.65rem 0 0;
+    max-width: 100%;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #1e293b;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.opac-new-arrivals-block .carousel-track {
+    gap: 14px;
+    padding: 0.35rem 0 0.75rem;
+}
+
+.opac-new-arrivals-block .arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border-color: #dbe2ea;
+    background: #fff;
+}
+
+.opac-new-arrivals-block .arrow.left {
+    left: 0;
+}
+
+.opac-new-arrivals-block .arrow.right {
+    right: 0;
+}
+
+@media (max-width: 576px) {
+    .opac-hero-search-row {
+        flex-direction: column;
+    }
+
+    .opac-hero-search-btn {
+        width: 100%;
+    }
+
+    .opac-new-arrivals-block .carousel-container {
+        padding: 0 2rem;
+    }
+
+    .opac-new-arrivals-block .carosel {
+        flex-basis: 128px;
+    }
+}
+
+/* Legacy aliases kept for other pages referencing these classes */
 .opac-search-block {
     background: #f8faf9;
     border-top: 1px solid #e2e8e4;
@@ -1057,15 +1672,59 @@ footer {
     max-width: 720px;
 }
 
-.opac-search-hint {
-    max-width: 520px;
-}
-
 .opac-refine-filters .opac-refine-select {
     min-width: 160px;
     max-width: 220px;
 }
 
-.opac-results-layout {
-    margin-top: 8px;
+.opac-query {
+    font-weight: 700;
+}
+
+.opac-results-toolbar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.opac-sort-select {
+    width: 180px;
+}
+
+.opac-result-cover img {
+    width: 64px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #f3f5f8;
+}
+
+.opac-result-meta {
+    min-width: 0;
+    flex: 1;
+}
+
+.opac-result-title {
+    font-weight: 700;
+    line-height: 1.35;
+    font-size: 1rem;
+}
+
+.opac-result-sub {
+    margin-top: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.opac-result-availability {
+    font-weight: 700;
+    margin-top: 0.45rem;
+}
+
+@media (max-width: 576px) {
+    .opac-sort-select {
+        width: 100%;
+        max-width: 100%;
+    }
 }

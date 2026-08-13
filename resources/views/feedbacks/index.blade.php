@@ -1,117 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>📋 Submitted Feedbacks</title>
+@extends('layouts.sec')
 
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('css/books/index.css') }}">
+@section('title', 'Submitted Feedbacks')
+
+@section('styles')
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.min.css') }}">
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-</head>
+@endsection
 
-<body>
-    <!-- Header with Left Logo and Right Logout Button (copied from your Book Kiosk header) -->
-    <div class="d-flex align-items-center px-4 py-2 flex-wrap" style="background-color: white; position: relative;">
-        <img src="{{ asset('images/pantasLogo.png') }}" alt="New Logo" class="header-logo-img" />
-        <h1 class="school-name mb-0 ms-2"></h1>
-
-        <!-- Hamburger Toggle (visible only on small screens) -->
-        <button id="customMenuToggle" class="d-md-none toggle-btn">
-            &#9776;
-        </button>
-
-        <!-- Navigation Wrapper -->
-        <div id="routeWrapper" class="d-flex gap-2 flex-wrap ms-auto responsive-nav">
-            <!-- Close Button (for mobile view) -->
-            <button id="customMenuClose" class="d-md-none close-btn">
-                &times;
-            </button>
-
-            <a class="btn0 btn-sm">Home</a>
-
-            <div class="attendance_dropdown">
-                <button class="attendance_dropdown-button">Attendance</button>
-                <div class="attendance_dropdown-content">
-                    <a href="{{ route('attendance.scan') }}">Attendance</a>
-                    <a href="{{ route('attendance_logs.index') }}">Attendance-logs</a>
-                </div>
-            </div>
-
-            <a href="{{ route('landing') }}"
-                class="btn2 btn-sm {{ request()->routeIs('books.landing') ? 'active-btn' : '' }}"> OPAC</a>
-
-            <div class="logs_dropdown">
-                <button class="logs_dropdown-button">Create Account</button>
-                <div class="logs_dropdown-content">
-                    <a href="{{ route('users.create') }}">Create Account</a>
-                    <a href="{{ route('users.index') }}">View Users</a>
-                </div>
-            </div>
-
-            <a href="{{ route('prospectus.index') }}" class="btn3 btn-sm">Prospectus Manager</a>
-
-            <div class="logs_dropdown">
-                <button class="logs_dropdown-button">Logs</button>
-                <div class="logs_dropdown-content">
-                    <a href="{{ route('logs.index') }}">Logs</a>
-                    <a href="{{ route('rfid.scanner') }}">RFID Scanner</a>
-                    <a href="{{ route('book.report.download') }}">Download Book Report</a>
-                    <a href="{{ route('students.report') }}">Student Report</a>
-                </div>
-            </div>
-
-            <a href="{{ route('files.index') }}" class="btn4 btn-sm">Repository</a>
-
-            <div class="logs_dropdown">
-                <button class="logs_dropdown-button">Room Reservations</button>
-                <div class="logs_dropdown-content">
-                    <a href="{{ route('rooms.index') }}">Manage Rooms</a>
-                    <a href="{{ route('rooms.book') }}">Book a Room</a>
-                    <a href="{{ route('rooms.schedule') }}">View Schedule</a>
-                    <a href="{{ route('rooms.pending') }}">Pending Reservations</a>
-                    <a href="{{ route('rooms.logs') }}">Reservation Logs</a>
-                    <a href="{{ route('feedback.index') }}" class="feedback-link">Show Feedback</a>
-                </div>
-            </div>
-
-            <form action="{{ route('logout') }}" method="POST" class="mb-0">
-                @csrf
-                <button type="submit" class="btn5">Logout</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- JS for the mobile menu (copied) -->
-    <script>
-        const toggleBtn = document.getElementById('customMenuToggle');
-        const closeBtn = document.getElementById('customMenuClose');
-        const routeWrapper = document.getElementById('routeWrapper');
-
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => {
-                routeWrapper.classList.add('open');
-            });
-        }
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                routeWrapper.classList.remove('open');
-            });
-        }
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                routeWrapper.classList.remove('open');
-            }
-        });
-    </script>
-
-    <!-- Page Banner (kept from your header layout) -->
-    <div class="head">
-        <img src="{{ asset('images/Bannernew.jpg') }}" alt="Banner" class="banner-img" hidden>
-    </div>
-
-    <!-- Feedbacks list content (no footer) -->
+@section('content')
     <div class="container py-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="fw-bold">📋 Submitted Feedbacks</h2>
@@ -168,7 +63,4 @@
         @endif
     </div>
 
-    <!-- Bootstrap JS only (no footer) -->
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-</body>
-</html>
+@endsection

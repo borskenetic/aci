@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register Student</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <script src="{{ asset('vendor/signature_pad/signature_pad.umd.min.js') }}"></script>
+@extends('layouts.sec')
 
+@section('title', 'Register Student')
+
+@section('styles')
     <style>
-        body { background-color: #f8f9fa; }
         .card { border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
         canvas { border: 1px solid #ccc; border-radius: 6px; }
         .btn-save { background-color: #007bff; color: white; }
         .btn-save:hover { background-color: #0056b3; }
     </style>
-</head>
+@endsection
 
-<body>
-
+@section('content')
 <div class="container mt-5 mb-5">
     <div class="card">
         <div class="card-header text-center">
@@ -179,7 +174,10 @@
         </div>
     </div>
 </div>
+@endsection
 
+@section('scripts')
+<script src="{{ asset('vendor/signature_pad/signature_pad.umd.min.js') }}"></script>
 <script>
     const canvas = document.getElementById('studentSignaturePad');
     const signaturePad = new SignaturePad(canvas);
@@ -196,7 +194,4 @@
         }
     });
 </script>
-
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-</body>
-</html>
+@endsection

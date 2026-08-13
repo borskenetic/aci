@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pending Registrations</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+@extends('layouts.sec')
+
+@section('title', 'Pending Registrations')
+
+@section('styles')
     <link rel="stylesheet" href="{{ asset('css/students/students.css') }}">
     <style>
         .hidden { display: none; }
     </style>
-</head>
-<body>
+@endsection
+
+@section('content')
 <div class="container py-4">
     <h3>Pending Registrations</h3>
 
@@ -156,6 +156,4 @@
     });
 </script>
 
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-</body>
-</html>
+@endsection
