@@ -228,6 +228,23 @@ class BookController extends Controller
     {
         // --- Get programs for filter dropdown ---
         $programs = Program::orderBy('program_name')->get();
+
+        $hasActiveQuery = $request->boolean('show_all')
+            || $request->filled('search')
+            || $request->filled('program')
+            || ($request->filled('year_filter') && $request->filled('year1'))
+            || ($request->has('status') && in_array($request->status, ['Available', 'Borrowed'], true));
+
+        if (! $hasActiveQuery) {
+            $books = new LengthAwarePaginator([], 0, 10, 1, [
+                'path' => $request->url(),
+                'query' => $request->query(),
+            ]);
+            $courses = collect();
+            $years = collect();
+
+            return view('books.index', compact('books', 'programs', 'courses', 'years', 'hasActiveQuery'));
+        }
     
         // --- Base filtered query ---
         $filteredQuery = Book::query()->whereNull('archived_at');
@@ -297,7 +314,7 @@ class BookController extends Controller
             ->withQueryString();
 
     
-        return view('books.index', compact('books', 'programs', 'courses', 'years'));
+        return view('books.index', compact('books', 'programs', 'courses', 'years', 'hasActiveQuery'));
     }
     
     public function viewCopies(Request $request)
