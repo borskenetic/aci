@@ -15,7 +15,7 @@
 <body>
     <header class="navbar">
         <div class="nav-container">
-            <a href="{{ route('home') }}#top" class="brand" id="brand-home">
+            <a href="{{ route('home') }}" class="brand" id="brand-home">
                 <img src="{{ asset('img/ACI.png') }}" alt="Agusan Colleges Inc. Logo" class="brand-logo">
             </a>
 
@@ -24,6 +24,7 @@
             </button>
 
             <nav class="nav-links" id="nav-links">
+                <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">HOME</a>
                 <a href="{{ route('home') }}#about" class="nav-link">ABOUT</a>
                 <a href="{{ route('landing') }}" class="nav-link {{ request()->routeIs('landing') ? 'active' : '' }}">OPAC</a>
                 <a href="https://zendy.io" class="nav-link" target="_blank" rel="noopener noreferrer">ZENDY</a>

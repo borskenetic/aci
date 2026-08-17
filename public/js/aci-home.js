@@ -31,6 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
     return true;
   };
 
+  const goHomeTop = (e) => {
+    const url = new URL(e.currentTarget.href, window.location.origin);
+    if (url.pathname !== window.location.pathname) return;
+    e.preventDefault();
+    history.pushState(null, "", url.pathname);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (navLinks) navLinks.classList.remove("active");
+  };
+
   document.querySelectorAll('a[href*="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
       const url = new URL(link.href, window.location.origin);
@@ -42,6 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollToHashTarget(url.hash);
       if (navLinks) navLinks.classList.remove("active");
     });
+  });
+
+  const brandHome = document.getElementById("brand-home");
+  const homeNav = document.querySelector('.nav-link[href="' + (brandHome ? brandHome.getAttribute("href") : "/") + '"]');
+  if (brandHome) brandHome.addEventListener("click", goHomeTop);
+  document.querySelectorAll(".nav-links .nav-link").forEach((link) => {
+    try {
+      const url = new URL(link.href, window.location.origin);
+      if (url.pathname === new URL(brandHome ? brandHome.href : "/", window.location.origin).pathname && !url.hash) {
+        link.addEventListener("click", goHomeTop);
+      }
+    } catch (_) {}
   });
 
   if (window.location.hash) {
