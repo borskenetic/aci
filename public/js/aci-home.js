@@ -1,62 +1,79 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const navToggle = document.getElementById("navToggle");
-    const navMenu = document.querySelector(".nav-menu");
-    if (navToggle && navMenu) {
-        navToggle.addEventListener("click", () => {
-            const isOpen = navMenu.classList.toggle("open");
-            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        });
-    }
+  const mobileToggle = document.getElementById("mobile-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const searchInput = document.getElementById("search-input");
+  const clearBtn = document.getElementById("clear-btn");
+  const tutorialVideo = document.getElementById("tutorial-video");
 
-    const observerOptions = {
-        threshold: 0.1
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+
+      const icon = mobileToggle.querySelector("i");
+      if (!icon) return;
+
+      if (navLinks.classList.contains("active")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+      } else {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+      }
+    });
+  }
+
+  if (searchInput && clearBtn) {
+    const syncClearButton = () => {
+      clearBtn.style.display = searchInput.value.trim().length > 0 ? "block" : "none";
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
-        });
-    }, observerOptions);
+    syncClearButton();
+    searchInput.addEventListener("input", syncClearButton);
 
-    // Select the elements we want to animate
-    const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach((el) => observer.observe(el));
-});
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      clearBtn.style.display = "none";
+      searchInput.focus();
+    });
+  }
 
-const observerOptions = { threshold: 0.15 };
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+    document.documentElement.style.setProperty("--scroll-percent", scrollPercent.toFixed(3));
+  });
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  const revealObserver = new IntersectionObserver((entries, observerInstance) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observerInstance.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.15
+  });
+
+  document.querySelectorAll(".scroll-reveal").forEach((el) => revealObserver.observe(el));
+
+  if (tutorialVideo) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+          tutorialVideo.play().catch(() => {});
+        } else {
+          tutorialVideo.pause();
         }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-const modal = document.getElementById("historyModal");
-const readMoreBtn = document.querySelector(".read-more");
-const closeBtn = document.querySelector(".close-btn");
-
-if (modal && readMoreBtn && closeBtn) {
-    readMoreBtn.addEventListener("click", () => {
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
+      });
+    }, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5
     });
 
-    closeBtn.addEventListener("click", () => {
-        modal.classList.remove("active");
-        document.body.style.overflow = "auto";
-    });
-
-    window.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.classList.remove("active");
-            document.body.style.overflow = "auto";
-        }
-    });
-}
-
+    videoObserver.observe(tutorialVideo);
+  }
+});
