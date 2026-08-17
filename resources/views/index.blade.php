@@ -3,7 +3,7 @@
 @section('title', 'Agusan Colleges Inc. - Library OPAC')
 
 @section('content')
-<main class="hero-section">
+<main class="hero-section" id="top">
     <div class="hero-container">
 
         <div class="hero-logo-wrapper">

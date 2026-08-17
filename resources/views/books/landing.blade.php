@@ -16,11 +16,11 @@
     @if($searchActive)
         <header class="opac-search-header" role="banner">
             <div class="opac-search-header-inner">
-                <a href="{{ route('landing') }}" class="opac-search-brand text-decoration-none">
-                    <img class="opac-search-logo" src="{{ asset('images/USM_logo.png') }}" alt="Library logo">
+                <a href="{{ route('home') }}" class="opac-search-brand text-decoration-none">
+                    <img class="opac-search-logo" src="{{ asset('images/d.png') }}" alt="Agusan Colleges Inc. logo">
                     <div class="opac-search-brand-text">
                         <span class="opac-search-kicker">Online Public Access Catalog</span>
-                        <span class="opac-search-title">University of Southern Mindanao</span>
+                        <span class="opac-search-title">Agusan Colleges Inc.</span>
                     </div>
                 </a>
 
@@ -50,8 +50,8 @@
     @else
         <header class="opac-public-header opac-header-bar">
             <div class="logo opac-logo-wrap">
-                <a href="{{ route('landing') }}" class="text-decoration-none text-dark d-inline-flex align-items-center">
-                    <img src="{{ asset('images/pantasLogo.png') }}" alt="Library Logo">
+                <a href="{{ route('home') }}" class="text-decoration-none text-dark d-inline-flex align-items-center">
+                    <img src="{{ asset('images/d.png') }}" alt="Agusan Colleges Inc. Logo">
                 </a>
             </div>
             <nav class="opac-top-nav" aria-label="Quick links">

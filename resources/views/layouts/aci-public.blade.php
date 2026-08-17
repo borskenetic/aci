@@ -15,7 +15,7 @@
 <body>
     <header class="navbar">
         <div class="nav-container">
-            <a href="{{ route('home') }}" class="brand">
+            <a href="{{ route('home') }}#top" class="brand" id="brand-home">
                 <img src="{{ asset('img/ACI.png') }}" alt="Agusan Colleges Inc. Logo" class="brand-logo">
             </a>
 
@@ -25,8 +25,8 @@
 
             <nav class="nav-links" id="nav-links">
                 <a href="{{ route('home') }}#about" class="nav-link">ABOUT</a>
-                <a href="{{ route('home') }}#opac" class="nav-link {{ request()->routeIs('home') || request()->routeIs('landing') ? 'active' : '' }}">OPAC</a>
-                <a href="{{ route('home') }}#zendy" class="nav-link">ZENDY</a>
+                <a href="{{ route('landing') }}" class="nav-link {{ request()->routeIs('landing') ? 'active' : '' }}">OPAC</a>
+                <a href="https://zendy.io" class="nav-link" target="_blank" rel="noopener noreferrer">ZENDY</a>
                 <a href="{{ route('contact') }}" class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">CONTACT US</a>
                 <a href="{{ route('rooms.book') }}" class="nav-link {{ request()->routeIs('rooms.book') ? 'active' : '' }}">ROOM RESERVATIONS</a>
                 <a href="{{ route('feedback.create') }}" class="nav-link {{ request()->routeIs('feedback.create') ? 'active' : '' }}">FEEDBACK</a>

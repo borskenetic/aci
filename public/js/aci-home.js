@@ -22,6 +22,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Brand / #top / #about: scroll reliably even when already on the homepage
+  const scrollToHashTarget = (hash) => {
+    if (!hash || hash === "#") return false;
+    const target = document.querySelector(hash);
+    if (!target) return false;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    return true;
+  };
+
+  document.querySelectorAll('a[href*="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const url = new URL(link.href, window.location.origin);
+      const isSamePage = url.pathname === window.location.pathname;
+      if (!isSamePage || !url.hash) return;
+
+      e.preventDefault();
+      history.pushState(null, "", url.pathname + url.hash);
+      scrollToHashTarget(url.hash);
+      if (navLinks) navLinks.classList.remove("active");
+    });
+  });
+
+  if (window.location.hash) {
+    setTimeout(() => scrollToHashTarget(window.location.hash), 50);
+  }
+
   if (searchInput && clearBtn) {
     const syncClearButton = () => {
       clearBtn.style.display = searchInput.value.trim().length > 0 ? "block" : "none";
